@@ -1,0 +1,26 @@
+.example-container {
+    width: 98vw;
+    height: 100vh;
+    margin: 10px;
+    border: 1px solid rgb(243, 27, 27);
+   
+    mat-drawer{
+        width: 15%;
+        background-color:rgb(107, 48, 107);
+        div{
+            // margin: 7.5%;
+            padding: 1rem;
+
+            h2{
+                cursor: pointer;
+                text-align: center;
+            }
+            h2:hover{
+                color: lightseagreen;
+            }
+        }
+    }
+    
+    
+  }
+

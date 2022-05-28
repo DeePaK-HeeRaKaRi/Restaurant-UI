@@ -1,0 +1,62 @@
+<div class="login-register">
+     <div class="login-register-panel">
+         
+          <div class="image">
+              <img src="https://www.washingtonian.com/wp-content/uploads/2020/01/100Best-scaled.jpg" alt="">
+            </div>
+         
+            <div class="login-form">
+                <!-- <h3>Welcome !</h3>
+                <h2>Login Page</h2>
+                <div class="container">
+                    <div class="row">
+                      <div class="col">
+                         
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        Column
+                      </div>
+                    </div>
+                  </div> -->
+                  <mat-card>
+                    <mat-card-title>
+                       Welcome !!!
+                    </mat-card-title>
+                    <mat-card-subtitle>Login Page</mat-card-subtitle>
+                    <form [formGroup]="loginForm" (submit)="onSubmit()">
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email</label>
+                        <input type="email" class="form-control" formControlName="email">
+                        <small><mat-error *ngIf="this.loginForm.controls['email'].invalid && isSubmitted">
+                            Email is Required
+                        </mat-error></small>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Password</label>
+                        <input type="password" class="form-control" formControlName="passwordHash">
+                        <small><mat-error *ngIf="this.loginForm.controls['passwordHash'].invalid && isSubmitted">
+                            Password is Required
+                        </mat-error></small>
+                      </div>
+
+                      <div class="mb-3">
+                        <small><mat-error *ngIf="authError && isSubmitted">
+                            {{ authMessage }}
+                        </mat-error></small>
+                      </div>
+                      <button mat-raised-button color="primary">
+                         Login
+                      </button>
+                    </form>
+                    <button mat-raised-button color="primary" routerLink="/users/signup" style="margin-top: 2rem;">Register As New User</button>
+                </mat-card>
+                
+            </div> 
+     </div>
+</div>
+
+  

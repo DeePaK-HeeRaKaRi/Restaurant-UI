@@ -1,0 +1,39 @@
+<app-header></app-header>
+<mat-card>
+    <mat-card-title>
+      Users
+    </mat-card-title>
+    <mat-card-subtitle>List Of Users</mat-card-subtitle>
+    <button mat-raised-button color="primary" (click)="addnewUser()">Add New Users</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Is Admin</th>
+        <th>Country</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of usersList">
+        <td scope="col">{{ list.name }}</td>
+        <td scope="col">{{ list.email }}</td>
+        <td scope="col">
+            <h3 *ngIf=" list.isAdmin ;then thenBlock ,else showmessage ">
+            </h3>
+            <ng-template #thenBlock>Yes</ng-template>
+            <ng-template #showmessage>No</ng-template>
+        </td>
+        <td scope="col">{{ list.country }}</td>
+        <td scope="col" > 
+          <button mat-flat-button color="accent" style="margin-right: 2rem;" (click)='deleteUser(list.id,list.isAdmin)'>Delete</button> 
+          <button mat-flat-button color="warn" (click)='updateUser(list.id)'>Edit</button>
+        </td>
+      </tr>
+    </tbody>
+</table>
+</mat-card>
+  
+  
+  

@@ -1,0 +1,66 @@
+<app-header></app-header>
+ 
+<mat-card>
+    <mat-card-title>
+      Product
+    </mat-card-title>
+    <mat-card-subtitle>List Of Products</mat-card-subtitle>
+    <button mat-raised-button color="primary" (click)="addnewProduct()">Add New Product</button>
+    <button mat-raised-button color="primary" id="totalProducts">Total Products - {{totalProductList.productCount}}</button>
+    <input class="form-control" type="text" placeholder="Search" formControlName="searchTxt" aria-label="Search" id="searchInput" (keyup)="search($event)">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Category</th>
+        <th>Created At</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let list of searchList">
+          <td scope="col">{{ list.name }}</td>
+          <td scope="col" style='width: 10%;'><img [src]="list.image" alt="Image Not Found" style="width: 100%;margin-right:0%;"></td>
+          <td scope="col" >{{ list.price }}</td>
+          <td scope="col">{{ list.countInStock }}</td>
+          <td scope="col">{{ list.category?.name }}</td>
+          <!-- <td scope="col">{{ list.category?.icon}}</td> -->
+          <td scope="col">{{ list.dateCreated | date:'medium'}}</td>
+          <!-- <td scope="col">{{ list.color }}</td> -->
+          <td scope="col" > 
+            <button mat-flat-button color="accent" style="margin-right: 2rem;" (click)='deleteProduct(list.id)'>Delete</button> 
+            <button mat-flat-button color="warn" (click)='updateProduct(list)' style="margin-right: 2rem;" >Edit</button>
+          </td>
+        </tr>
+    </tbody>
+    
+    <tbody>
+      <tr *ngFor="let list of productList">
+        <td scope="col">{{ list.name }}</td>
+        <td scope="col" style='width: 10%;'><img [src]="list.image" alt="Image Not Found" style="width: 100%;margin-right:0%;"></td>
+        <td scope="col" >{{ list.price }}</td>
+        <td scope="col">{{ list.countInStock }}</td>
+        <td scope="col">{{ list.category?.name }}</td>
+        <!-- <td scope="col">{{ list.category?.icon}}</td> -->
+        <td scope="col">{{ list.dateCreated | date:'medium'}}</td>
+        <!-- <td scope="col">{{ list.color }}</td> -->
+        <td scope="col" > 
+          <button mat-flat-button color="accent" style="margin-right: 2rem;" (click)='deleteProduct(list.id)'>Delete</button> 
+          <button mat-flat-button color="warn" (click)='updateProduct(list)' style="margin-right: 2rem;" >Edit</button>
+        </td>
+      </tr>
+    </tbody>
+    
+  </table>
+  <mat-paginator [length]="100"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+  </mat-paginator>
+</mat-card>
+  
+  
+  

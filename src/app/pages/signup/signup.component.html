@@ -1,0 +1,124 @@
+<mat-card>
+    <mat-card-title>
+       User / Admin Registration
+    </mat-card-title>
+    <mat-card-subtitle>Add Users</mat-card-subtitle>
+    <form [formGroup]="userForm" (submit)="onSubmit()">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Name</label>
+        <input type="text" class="form-control" formControlName="name" />
+        <div *ngIf="this.userForm.controls['name'].touched && this.userForm.controls['name'].invalid">
+          <small>
+            <mat-error *ngIf="this.userForm.controls['name'].hasError('required')">
+              Name is Required
+            </mat-error>
+          </small>
+          <small>
+            <mat-error *ngIf="this.userForm.controls['name'].hasError('pattern')">
+               Invalid Name
+            </mat-error>
+          </small>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="abc@xyz.com">
+        <small>
+          <mat-error *ngIf="this.userForm.controls['email'].invalid && isSubmitted">
+            Email Is Required
+            <!-- <span *ngIf="this.userForm.controls['email'].errors.required">Email is Required</span>
+            <span *ngIf="this.userForm.controls['email'].invalid">Invalid Email Id</span> -->
+          </mat-error>
+        </small>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="passwordHash" />
+        <small>
+          <mat-error *ngIf="this.userForm.controls['passwordHash'].invalid && isSubmitted">
+            Password is Required
+          </mat-error>
+        </small>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Phone</label>
+        <input type="string" class="form-control" formControlName="phone" placeholder="+91-9999999999">
+        <div *ngIf="this.userForm.controls['phone'].touched && this.userForm.controls['phone'].invalid">
+          <small>
+            <mat-error *ngIf="this.userForm.controls['phone'].hasError('required')">
+              Mobile Number is Required
+            </mat-error>
+          </small>
+          <small>
+            <mat-error *ngIf="this.userForm.controls['phone'].hasError('pattern')">
+                Invalid Mobile Number
+            </mat-error>
+          </small>
+        </div>
+        
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">IsAdmin</label>
+        <mat-slide-toggle formControlName="isAdmin"></mat-slide-toggle>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Enter Your Secret Key To Log in As Admin</label>
+        <input type="password" class="form-control" formControlName="secret" />
+        <!-- <small>
+          <mat-error *ngIf="this.userForm.controls['passwordHash'].invalid && isSubmitted">
+            Password is Required
+          </mat-error>
+        </small> -->
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Street</label>
+        <input type="text" class="form-control" formControlName="street" />
+      </div>
+  
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Apartment</label>
+        <input type="text" class="form-control" formControlName="apartment" />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">City</label>
+        <input type="text" class="form-control" formControlName="city" />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Zip</label>
+        <input type="text" class="form-control" formControlName="zip" />
+      </div>
+  
+      <!-- <div class="mb-3">
+        <mat-label>Select Category</mat-label>
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let i of categoriesList" [value]="i.id">
+            {{i.name}}
+          </mat-option>
+        </mat-select>
+        <small>
+          <mat-error *ngIf="this.userForm.controls['category'].invalid && isSubmitted">
+            Category is Required
+          </mat-error>
+        </small>
+      </div> -->
+      <div class="mb-3"> 
+        <label for="exampleFormControlInput1" class="form-label">Country</label>
+        <select class="form-select" aria-label="Default select example" formControlName="country">
+          <option selected>Open this select menu</option>
+          <option value="India">India</option>
+          <option value="USA">USA</option>
+          <option value="Australia">Australia</option>
+        </select>
+      </div>
+      
+
+      <button mat-raised-button color="primary">
+         Submit
+      </button>
+    </form>
+  </mat-card>
+  

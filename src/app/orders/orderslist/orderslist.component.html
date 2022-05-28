@@ -1,0 +1,45 @@
+<app-header></app-header>
+<mat-card>
+    <mat-card-title>
+        Orders
+      </mat-card-title>
+      <mat-card-subtitle>List Of Orders</mat-card-subtitle>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Customer Id</th>
+          <th>User</th>
+          <th>Total Price</th>
+          <th>Date Ordered</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+    </thead>
+      <tbody>
+        <tr *ngFor="let list of orders">
+          <td scope="col">{{ list.user?.id}}</td>
+          <td scope="col">{{ list.user?.name}}</td>
+          <td scope="col">{{ list.totalPrice }}</td>
+          <td scope="col">{{ list.dateOrdered | date:'medium'}}</td>
+          <!-- <td scope="col">{{ list.status }}</td> -->
+          <!-- <td scope="col"><p-tag [value]="orderStatus[0].label"
+            [severity]="orderStatus[0].label">  
+          </p-tag>   -->
+          <td scope="col">
+            {{ list.status }}
+            <!-- <button type="button" class="btn btn-primary">Primary</button> -->
+            <!-- <p  class="btn btn-primary">Primary</p> -->
+          </td>
+          <td></td>
+          <td scope="col" > 
+            <button mat-flat-button color="accent" style="margin-right: 2rem;" (click)='deleteOrder(list)'>Delete</button> 
+            <button mat-flat-button color="warn" (click)='showOrder(list.id)'>Edit Delivery Status</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card>
+    
+  
+
+<!-- <app-home></app-home> -->

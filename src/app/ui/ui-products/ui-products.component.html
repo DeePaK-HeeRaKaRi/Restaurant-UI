@@ -1,0 +1,16 @@
+ 
+<div class="featured-products">
+  <h2 style="font-weight: bolder;">Featured Products</h2>
+</div>
+<div id="product-div">
+  <div class="card" style="width: 18rem;" *ngFor="let product of featuredProducts" class="productt-cls"  routerLink="/customers/products">
+    <img [src]="product.image" class="card-img-top" alt="..." class="image">
+    <span class="card-body">
+      <h2 class="card-title">{{ product.name }}</h2>
+      <h3 class="card-text">₹ {{ product.price }}</h3>
+    </span>
+  </div>
+</div>
+
+ 
+ 

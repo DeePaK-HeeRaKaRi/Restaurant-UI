@@ -1,0 +1,33 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <h3 class="navbar-brand" (click)="home()" style="cursor: pointer;margin-top: 1rem;">Deepak'S Restaruant</h3>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText" style="margin-left: 10rem;">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               <li (click)="category()">
+                    Category
+                </li>
+                <li (click)="products()">
+                        Products
+                </li>
+                <li (click)="orders()">
+                    Orders
+                </li>
+                <li (click)="users()">
+                        Users
+                </li>
+                <li (click)="logout()">
+                      LogOut
+                </li>
+            </ul>
+            <span class="navbar-text">
+              Developed by Deepak-Heerakari
+            </span>
+          </div>
+        </div>
+      </nav>
+</header> 
+

@@ -1,0 +1,53 @@
+.header-img{
+    height: 30rem;
+    background-image: url("https://b.zmtcdn.com/mx-onboarding-hero87f77501659a5656cad54d98e72bf0d81627911821.webp");
+    background-position: center;
+	background-size: cover;
+	// background-attachment: fixed;
+}
+ul{
+    display: flex;
+    li{
+        list-style: none;
+        color: white;
+        margin-top: 3rem;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }:hover{
+        color: rgb(163, 163, 141);
+        transition: color 0.5s, border-bottom 4s;
+        cursor: pointer;
+    }
+    #add{
+        &-restaruant{
+            margin-left: 30rem;
+        }
+        &-app{
+            margin-left: 15rem;
+        }
+        &-food-items{
+            margin-left: 10rem;
+        }
+        &-logout{
+            margin-left: 10rem;
+        }
+    }
+}
+
+.header-content{
+    margin-top: 10rem;
+    h1{ 
+        margin-left: 35%;
+        font-size: 2rem;
+        color: white;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      
+    }
+    :hover{
+        color: rgb(163, 163, 141);
+        transition: color 0.5s, border-bottom 4s;
+        cursor: pointer;
+        // animation:backInLeft;
+        // animation-duration: 4s;
+    }
+    
+}

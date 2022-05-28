@@ -1,0 +1,32 @@
+<mat-card>
+    <mat-card-title>
+      <h3 *ngIf=" editMode ;then thenBlock;else showmessage"> Category</h3>
+     <ng-template #thenBlock>Edit Category</ng-template>
+     <ng-template #showmessage>Add Category</ng-template>
+    </mat-card-title>
+    <mat-card-subtitle>Add or edit Categories</mat-card-subtitle>
+    <form [formGroup]="categoryForm" (submit)="onSubmit()">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Name</label>
+        <input type="text" class="form-control" formControlName="name">
+        <small><mat-error *ngIf="this.categoryForm.controls['name'].invalid && isSubmitted">
+            Name is Required
+        </mat-error></small>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Icon</label>
+        <input type="text" class="form-control" formControlName="icon">
+      </div>
+      <!-- <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Color</label>
+        <input type="text" class="form-control" formControlName="color">
+      </div> -->
+      <button mat-raised-button color="primary">
+        <h3 *ngIf="editMode;then thenBlock;else showmessage"> 
+          <ng-template #thenBlock>Update</ng-template>
+          <ng-template #showmessage>Create</ng-template>
+        </h3>
+      </button>
+      
+    </form>
+</mat-card>

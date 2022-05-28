@@ -1,0 +1,37 @@
+
+.image{
+    width: 10rem;
+    height: 10rem;
+    margin-left: 4rem;
+}
+.featured-products{
+    margin-top: 1rem;
+}
+#product-div{
+    width: 100%;
+    height:auto;
+    // border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    :hover{
+    animation: pulse; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 4s;
+    color: brown;
+     
+    // box-shadow: 0px 0px 1px 2px lightgrey;
+      
+    }
+
+}
+.productt-cls{
+    height: auto;
+    margin: 2rem;
+    cursor: pointer;
+} 
+h2{
+    text-align: center;
+}
+h3{
+    text-align: center;
+}

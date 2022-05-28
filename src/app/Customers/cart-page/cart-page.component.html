@@ -1,0 +1,35 @@
+<div class="cart-page">
+    <div>
+
+    </div>
+    <div>
+        <button type="button" class="btn btn-success" style="margin-top: 1rem;" routerLink="/customers/products"><i class="fas fa-arrow-left"></i>  Back To Products</button>
+    </div>
+    <div>
+        <h4>
+            My Cart: {{ 2 }} Item(s)
+        </h4>
+    </div>
+    <div class="cart-shipping">
+        Shipping after the payment,Delivery Time : 30 mins (approx)
+    </div>
+    <div class="cart-item">
+        <div>
+            <div class="cart-item-image">
+                <img src="" alt="">
+            </div>
+            <div>
+                <div class="cart-item-name">
+                    Product Name
+                </div>
+                <div class="cart-item-price">
+                    ₹ {{ 500 }}
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary" (click)="deleteCartItem()"> <i class="fas fa-trash"></i></button>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

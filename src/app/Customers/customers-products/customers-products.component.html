@@ -1,0 +1,35 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened class="side-content">
+      <h3 id='category-Heading'>Select Categories</h3>
+        <div class="form-check" *ngFor="let category of categoryList" id="category-List">
+          <input class="form-check-input" [(ngModel)]="category.checked" type="checkbox" id="{{category.id}}" (change)="categoryFilter()">
+          <label class="form-check-label" for="{{category.id}}">
+            {{category.name}}
+          </label>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div class="icon">
+        <span>
+          <span class="icon-home" routerLink="/customers/ui"><i class="fas fa-home"></i></span>
+          <span class="icon-cart" routerLink="/cart">
+            <mat-icon matBadge={{cartCount}} matBadgeColor="warn">
+              <i class="fas fa-cart-plus"></i>
+            </mat-icon>
+          </span>
+        </span>
+      </div>
+      <div id="product-div">
+            <div  *ngFor="let product of productsList" class="productt-cls">
+              <span>
+                    <img [src]="product.image" alt="" class="image">
+                    <h3 class="name">{{ product.name }}</h3>
+                    <h4 class="price">₹ {{ product.price }}</h4>
+                    <!-- <button type="button" class="btn btn-success" class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to cart</button> -->
+                    <button type="button" class="btn btn-success" (click)="addProductToCart(product)"><i class="fas fa-cart-plus"></i> Add to cart</button>
+              </span>
+            </div>
+          </div> 
+    </mat-drawer-content>
+</mat-drawer-container>
+

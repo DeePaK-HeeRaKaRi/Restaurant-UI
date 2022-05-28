@@ -1,0 +1,152 @@
+<mat-card>
+    <mat-card-title>
+      
+      View Orders
+    </mat-card-title>
+    <mat-card-subtitle>You can update order status here</mat-card-subtitle>
+    <fieldset class="border p-2">
+        <legend  class="float-none w-auto p-2">
+            <button class="btn btn-primary" class="btn btn-primary disabled">
+               Order Details
+            </button>
+        </legend>
+        <div class="container">
+            <div class="row">
+              <div class="col">
+                <h3 style="font-weight: bold;">OrderId</h3>
+                <p>{{orderList?.id}}</p>
+              </div>
+              <div class="col">
+                <h3 style="font-weight: bold;">Order Date</h3>
+                <p>{{orderList?.dateOrdered | date:'medium'}}</p>
+              </div>
+              <div class="col">
+                <h3 style="font-weight: bold;">Order Status</h3>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="width: 200px;">
+                    <!-- <option selected>Open this select menu</option> -->
+                    <option value="Pending">Pending</option>
+                    <option value="Processed">Processed</option>
+                    <option value="Preparing">Preparing</option>
+                    <option value="Delivered">Delivered</option>
+                  </select>
+              </div>
+            </div>
+        </div>
+     </fieldset>
+     <fieldset class="border p-2">
+        <legend  class="float-none w-auto p-2">
+            <button class="btn btn-primary" class="btn btn-primary disabled">
+                Order Items
+             </button>
+        </legend>
+        <div class="container">
+            <div class="row">
+              <div class="col"> 
+                <h3 style="font-weight: bold;">Name</h3>
+              </div>
+              <div class="col">
+                <h3 style="font-weight: bold;">Brand</h3>
+              </div>
+              <div class="col">
+                <h3 style="font-weight: bold;">Category</h3>
+              </div>
+              <div class="col">
+                <h3 style="font-weight: bold;">Price</h3>
+              </div>
+              <div class="col">
+                <h3 style="font-weight: bold;">Quantity</h3>
+              </div>
+              <div class="col">
+                <h3 style="font-weight: bold;">SubTotal</h3>
+              </div>
+            </div>
+        </div>
+        <div class="container" *ngFor="let data of orderList?.orderItems">
+            <div class="row">
+              <div class="col"> 
+                 <p>{{data.product?.name}}</p>
+              </div>
+              <div class="col">
+                <p>{{data.product?.brand}}</p>
+              </div>
+              <div class="col">
+                <p>{{data.product?.category?.name}}</p>
+              </div>
+              <div class="col">
+                <p>₹ {{data.product?.price}} </p>
+              </div>
+              <div class="col">
+                <p>{{data?.quantity}}</p>
+              </div>
+              <div class="col">
+                  <p>₹ {{ getMultipliedValue(data.product?.price,data?.quantity) }}</p>
+                <!-- <p>{{ data.product?.price * data?.quantity }}</p> -->
+              </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+              <div class="col"> 
+                <h3 style="font-weight: bold;"></h3>
+              </div>
+              <div class="col">
+                <h3 style="font-weight: bold;"></h3>
+              </div>
+              <div class="col">
+                <h3 style="font-weight: bold;"></h3>
+              </div>
+              <div class="col">
+                <h3 style="font-weight: bold;"></h3>
+              </div>
+              <div class="col">
+                <h3 style="font-weight: bold;color:green">Total Price</h3>
+              </div>
+              <div class="col">
+                <h3 style="font-weight: bold;color:green">₹ {{orderList?.totalPrice}}</h3>
+              </div>
+            </div>
+        </div>
+     </fieldset>
+     <fieldset class="border p-2">
+        <legend  class="float-none w-auto p-2">
+            <button class="btn btn-primary" class="btn btn-primary disabled">
+                Order Address
+             </button>
+        </legend>
+        <div class="container">
+            <div class="row">
+              <div class="col"> 
+                <h3 style="font-weight: bold;">Shipping Address-1</h3>
+                <p>{{orderList?.shippingAddress1}}</p>
+              </div>
+              <div class="col">
+                <h3 style="font-weight: bold;">Shipping Address-2</h3>
+                <p>{{orderList?.shippingAddress2}}</p>
+              </div>
+              <div class="col">
+                <h3 style="font-weight: bold;">City</h3>
+                <p>{{orderList?.city}}</p>
+              </div>
+              <div class="col">
+                <h3 style="font-weight: bold;">Zip</h3>
+                <p>{{orderList?.zip}}</p>
+              </div>
+              <div class="col">
+                <h3 style="font-weight: bold;">Country</h3>
+                <p>{{orderList?.country}}</p>
+              </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+              <div class="col"> 
+                <h3 style="font-weight: bold;">Contact Info</h3>
+                <p>{{orderList?.user?.name}}</p>
+                <p>{{orderList?.user?.email}}</p>
+                <p>{{orderList?.phone}}</p>
+              </div>
+            </div>
+        </div>
+     </fieldset>  
+</mat-card>
+ 
